@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 class TrailersController < ApplicationController
   before_action :set_trailer, only: %i[show update destroy]
+=======
+class TrailersController < OpenReadController
+  before_action :set_trailer, only: %i[update destroy]
+>>>>>>> dev
 
   # GET /trailers
   def index
@@ -12,12 +17,20 @@ class TrailersController < ApplicationController
 
   # GET /trailers/1
   def show
+<<<<<<< HEAD
     render json: @trailer
+=======
+    render json: Trailer.find(params[:id])
+>>>>>>> dev
   end
 
   # POST /trailers
   def create
+<<<<<<< HEAD
     @trailer = Trailer.new(trailer_params)
+=======
+    @trailer = current_user.trailers.build(trailer_params)
+>>>>>>> dev
 
     if @trailer.save
       render json: @trailer, status: :created, location: @trailer
@@ -38,6 +51,11 @@ class TrailersController < ApplicationController
   # DELETE /trailers/1
   def destroy
     @trailer.destroy
+<<<<<<< HEAD
+=======
+
+    head :no_content
+>>>>>>> dev
   end
 
   private
