@@ -51,6 +51,6 @@ class TrailersController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def trailer_params
-    params.require(:trailer).permit(:user_id, :make, :model, :year, :trailer_type, :hitch_type, :length, :gvwr, :axels, :picture)
+    params.require(:trailer).permit(:user_id, :make, :model, :year, :trailer_type, :hitch_type, :length, :gvwr, :axels, :picture, :price)
   end
 end

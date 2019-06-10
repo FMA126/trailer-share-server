@@ -15,7 +15,8 @@ curl "http://localhost:4741/trailers/${ID}" \
       "length": "'"${LENGTH}"'",
       "gvwr": "'"${GVWR}"'",
       "axels": "'"${AXELS}"'",
-      "picture": "'"${PICTURE}"'"
+      "picture": "'"${PICTURE}"'",
+      "price": "'"${PRICE}"'"
     }
   }'
 
