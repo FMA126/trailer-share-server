@@ -8,7 +8,14 @@ curl "http://localhost:4741/trailers/${ID}" \
   --data '{
     "trailer": {
       "make": "'"${MAKE}"'",
-      "model": "'"${MODEL}"'"
+      "model": "'"${MODEL}"'",
+      "year": "'"${YEAR}"'",
+      "trailer_type": "'"${TRAILER_TYPE}"'",
+      "hitch_type": "'"${HITCH_TYPE}"'",
+      "length": "'"${LENGTH}"'",
+      "gvwr": "'"${GVWR}"'",
+      "axels": "'"${AXELS}"'",
+      "picture": "'"${PICTURE}"'"
     }
   }'
 
