@@ -7,7 +7,7 @@ The API does not currently validate reservation states.
 
 ## Trailer Share Client Repo
 
-![font end]('https://github.com/FMA126/trailer-share-client')
+https://github.com/FMA126/trailer-share-client
 
 ## API URL
 
@@ -26,7 +26,8 @@ The API does not currently validate reservation states.
 | GET    | `/trailers`               | `trailer#index`   |
 | POST   | `/trailers`               | `trailer#create`  |
 | GET    | `/trailers/:id`           | `trailers#show`   |
-| PATCH  | `/trailers/:id`           | `trailers#update`    |
+| PATCH  | `/trailers/:id`           | `trailers#update` |
+| DELETE | `/trailers/:id`           | `trailers#destroy`|
 
 All data returned from API actions is formatted as JSON.
 
@@ -238,13 +239,7 @@ The `sign-out` and `change-password` requests must include a valid HTTP header
 All trailer action requests must include a valid HTTP header `Authorization:
 Token token=<token>` or they will be rejected with a status of 401 Unauthorized.
 
-All of the trailer actions, except for `watch`, follow the *RESTful* style.
-
-Trailers are associated with users. Actions, other than
-update, will only retrieve a trailer if the user associated with the
-`Authorization` header is one of those two users. If this requirement is unmet,
-the response will be 404 Not Found, except for the index action which will
-return an empty trailers array.
+All of the trailer actions follow the *RESTful* style.
 
 *Summary:*
 
@@ -259,21 +254,6 @@ return an empty trailers array.
   <th>body</th>
   <th>Status</th>
   <th>body</th>
-</tr>
-<tr>
-<td>GET</td>
-<td>`/trailers[?over=<true|false>]`</td>
-<td>n/a</td>
-<td>200, OK</td>
-<td><strong>trailers found</strong></td>
-</tr>
-<tr>
-  <td colspan="3">
-  The optional `over` query parameter restricts the response to trailers with a
-   matching `over` property.
-  </td>
-  <td>200, OK</td>
-  <td><em>empty trailers</em></td>
 </tr>
 <tr>
   <td colspan="3">
@@ -341,8 +321,7 @@ return an empty trailers array.
 
 ## index
 
-The `index` action is a *GET* that retrieves all the trailers associated with a
-user. The response body will contain JSON containing an array of trailers, e.g.:
+The `index` action is a *GET* that retrieves all the trailers. The response body will contain JSON containing an array of trailers, e.g.:
 
 ```json
 {
@@ -381,27 +360,12 @@ user. The response body will contain JSON containing an array of trailers, e.g.:
 }
 ```
 
-If there are no trailers associated with the user, the response body will contain
- an empty trailers array, e.g.:
-
-```json
-{
-  "trailers": []
-}
-```
-
 ### Example of using the optional query parameter
 
 End point to fetch all of a user's trailers
 
 ```md
 /trailers
-```
-
-End point to fetch all of a user's trailers that are over
-
-```md
-/trailers?over=true
 ```
 
 ## create
