@@ -14,7 +14,9 @@ https://github.com/FMA126/trailer-share-client
 ```js
   production: 'https://trailer-share.herokuapp.com/',
 ```
+## Entity Relationship Diagram
 
+![ERD](public/entity-relationship-diagram.jpg)
 ## API End Points
 
 | Verb   | URI Pattern               | Controller#Action |
