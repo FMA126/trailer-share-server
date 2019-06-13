@@ -46,7 +46,7 @@ class TrailersController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_trailer
-    @trailer = Trailer.find(params[:id])
+    @trailer = current_user.trailers.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
